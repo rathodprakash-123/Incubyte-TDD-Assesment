@@ -63,4 +63,11 @@ describe('SweetShop',()=>{
         const sorted = shop.sortBy('price', 'asc');
         expect(sorted[0].price).toBe(15);
     });
+
+    // Purchase testing
+    test('purchases sweet and reduces stock', () => {
+        shop.addSweet({ id: '8', name: 'Peda', category: 'Milk', price: 10, quantity: 10 });
+        shop.purchaseSweet('8', 4);
+        expect(shop.getAllSweets()[0].quantity).toBe(6);
+    });
 });
