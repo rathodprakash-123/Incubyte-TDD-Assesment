@@ -28,5 +28,11 @@ class SweetShop{
         throw new Error("Sweet not found with given ID.");
         }
     }
+    // Search by Name
+    searchByName(name) {
+        return this.sweets.filter(s =>
+        s.name.toLowerCase().includes(name.toLowerCase())
+        );
+    }
 }
 module.exports = SweetShop;

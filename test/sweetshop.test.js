@@ -36,5 +36,12 @@ describe('SweetShop',()=>{
     test('throws when deleting non-existent sweet', () => {
         expect(() => shop.deleteSweet('999')).toThrow("Sweet not found with given ID.");
     });
+
+    // Searchby name,category, price-range testing
+    test('searches by name', () => {
+        shop.addSweet({ id: '3', name: 'Rasgulla', category: 'Milk', price: 25, quantity: 10 });
+        const results = shop.searchByName('ras');
+        expect(results.length).toBe(1);
+    });
     
 });
