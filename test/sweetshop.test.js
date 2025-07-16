@@ -6,8 +6,9 @@ describe('SweetShop',()=>{
     beforeEach(()=>{
         shop = new SweetShop();
     });
+
     // addSweet() testing
-    test("Shoud add Sweet",()=>{
+    test('Shoud add Sweet',()=>{
         const sweet = {
             id:'1001',
             name: 'Kaju Katli',
@@ -25,12 +26,15 @@ describe('SweetShop',()=>{
         shop.addSweet(sweet);
         expect(() => shop.addSweet(sweet)).toThrow("Sweet with this ID already exists.");
     });
-        // deleteSweet() testing
+    // deleteSweet() testing
     test('deletes a sweet successfully', () => {
         shop.addSweet({ id: '2', name: 'Kaju Katli', category: 'Nut', price: 20, quantity: 10 });
         shop.deleteSweet('2');
         expect(shop.getAllSweets().length).toBe(0);
     });
 
+    test('throws when deleting non-existent sweet', () => {
+        expect(() => shop.deleteSweet('999')).toThrow("Sweet not found with given ID.");
+    });
     
 });
