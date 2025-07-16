@@ -63,16 +63,15 @@ class SweetShop{
 
         return order === 'desc' ? sorted.reverse() : sorted;
     }
-        // Purchase Sweet
-    purchaseSweet(id, quantity) {
-        const sweet = this.sweets.find(s => s.id == id);
-        if (!sweet) throw new Error("Sweet not found.");
-        if (quantity <= 0) throw new Error("Quantity must be greater than zero.");
-        if (sweet.quantity < quantity) {
-        throw new Error(`Only ${sweet.quantity} in stock. Cannot complete purchase.`);
-        }
-
-        sweet.quantity -= quantity;
+    // Purchase Sweet
+  purchaseSweet(id, quantity) {
+    const sweet = this.sweets.find(s => s.id == id);
+    if (!sweet) throw new Error("Sweet not found.");
+    if (quantity <= 0) throw new Error("Quantity must be greater than zero.");
+    if (sweet.quantity < quantity) {
+      throw new Error(`Only ${sweet.quantity} in stock. Cannot complete purchase.`);
     }
+    sweet.quantity -= quantity;
+  }
 }
 module.exports = SweetShop;
