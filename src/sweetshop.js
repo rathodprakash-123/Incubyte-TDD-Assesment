@@ -46,5 +46,23 @@ class SweetShop{
         s.price >= minPrice && s.price <= maxPrice
         );
     }
+        // Sort Sweets
+    sortBy(field, order = 'asc') {
+        const validFields = ['name', 'category', 'price', 'quantity'];
+        if (!validFields.includes(field)) {
+        throw new Error(`Cannot sort by "${field}"`);
+        }
+
+        const sorted = [...this.sweets].sort((a, b) => {
+        if (typeof a[field] === 'string') {
+            return a[field].localeCompare(b[field]);
+        } else {
+            return a[field] - b[field];
+        }
+        });
+
+        return order === 'desc' ? sorted.reverse() : sorted;
+    }
+
 }
 module.exports = SweetShop;

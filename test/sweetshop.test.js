@@ -49,11 +49,18 @@ describe('SweetShop',()=>{
         const results = shop.searchByCategory('sugar');
         expect(results[0].name).toBe('Jalebi');
     });
-    
+
     test('searches by price range', () => {
         shop.addSweet({ id: '5', name: 'Halwa', category: 'Sweet', price: 40, quantity: 5 });
         const results = shop.searchByPriceRange(30, 50);
         expect(results[0].name).toBe('Halwa');
     });
     
+        // sortBy() testing
+    test('sorts sweets by price ascending', () => {
+        shop.addSweet({ id: '6', name: 'Barfi', category: 'Milk', price: 15, quantity: 3 });
+        shop.addSweet({ id: '7', name: 'Gulab Jamun', category: 'Milk', price: 25, quantity: 3 });
+        const sorted = shop.sortBy('price', 'asc');
+        expect(sorted[0].price).toBe(15);
+    });
 });
