@@ -34,5 +34,11 @@ class SweetShop{
         s.name.toLowerCase().includes(name.toLowerCase())
         );
     }
+        // Search by Category
+    searchByCategory(category) {
+        return this.sweets.filter(s =>
+        s.category.toLowerCase() === category.toLowerCase()
+        );
+    }
 }
 module.exports = SweetShop;

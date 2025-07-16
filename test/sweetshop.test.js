@@ -43,5 +43,11 @@ describe('SweetShop',()=>{
         const results = shop.searchByName('ras');
         expect(results.length).toBe(1);
     });
+
+    test('searches by category', () => {
+        shop.addSweet({ id: '4', name: 'Jalebi', category: 'Sugar', price: 30, quantity: 15 });
+        const results = shop.searchByCategory('sugar');
+        expect(results[0].name).toBe('Jalebi');
+    });
     
 });
