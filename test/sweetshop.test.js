@@ -81,4 +81,8 @@ describe('SweetShop',()=>{
         shop.restockSweet('10', 9);
         expect(shop.getAllSweets()[0].quantity).toBe(10);
     });
+    
+    test('throws when restocking nonexistent sweet', () => {
+        expect(() => shop.restockSweet('404', 10)).toThrow("Sweet not found.");
+    });
 });
