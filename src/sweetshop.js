@@ -19,5 +19,14 @@ class SweetShop{
     getAllSweets(){
         return this.sweets
     }
+    //  Delete Sweet by ID
+    deleteSweet(id) {
+        const initialLength = this.sweets.length;
+        this.sweets = this.sweets.filter(s => s.id != id);
+
+        if (this.sweets.length === initialLength) {
+        throw new Error("Sweet not found with given ID.");
+        }
+    }
 }
 module.exports = SweetShop;
