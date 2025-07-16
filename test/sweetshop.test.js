@@ -20,5 +20,10 @@ describe('SweetShop',()=>{
         expect(all.length).toBe(1);
         expect(all[0].name).toBe('Kaju Katli');
     });
+    test('throws erroron duplicate sweet ID', () => {
+        const sweet = { id: '1', name: 'Barfi', category: 'Milk', price: 15, quantity: 10 };
+        shop.addSweet(sweet);
+        expect(() => shop.addSweet(sweet)).toThrow("Sweet with this ID already exists.");
+    });
     
 });
