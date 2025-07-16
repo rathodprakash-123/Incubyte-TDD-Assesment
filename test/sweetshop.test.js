@@ -70,9 +70,15 @@ describe('SweetShop',()=>{
         shop.purchaseSweet('8', 4);
         expect(shop.getAllSweets()[0].quantity).toBe(6);
     });
-    
+
     test('throws on insufficient stock purchase', () => {
         shop.addSweet({ id: '9', name: 'Candy', category: 'Hard', price: 5, quantity: 2 });
         expect(() => shop.purchaseSweet('9', 5)).toThrow("Only 2 in stock. Cannot complete purchase.");
     });  
+   // Restock testing
+    test('restocks sweet and increases quantity', () => {
+        shop.addSweet({ id: '10', name: 'Toffee', category: 'Chewy', price: 3, quantity: 1 });
+        shop.restockSweet('10', 9);
+        expect(shop.getAllSweets()[0].quantity).toBe(10);
+    });
 });
