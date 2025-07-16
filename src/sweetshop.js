@@ -40,5 +40,11 @@ class SweetShop{
         s.category.toLowerCase() === category.toLowerCase()
         );
     }
+    // Search by Price Range
+    searchByPriceRange(minPrice, maxPrice) {
+        return this.sweets.filter(s =>
+        s.price >= minPrice && s.price <= maxPrice
+        );
+    }
 }
 module.exports = SweetShop;

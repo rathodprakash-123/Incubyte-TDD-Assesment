@@ -50,4 +50,10 @@ describe('SweetShop',()=>{
         expect(results[0].name).toBe('Jalebi');
     });
     
+    test('searches by price range', () => {
+        shop.addSweet({ id: '5', name: 'Halwa', category: 'Sweet', price: 40, quantity: 5 });
+        const results = shop.searchByPriceRange(30, 50);
+        expect(results[0].name).toBe('Halwa');
+    });
+    
 });
