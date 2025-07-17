@@ -4,7 +4,7 @@
   "description": "��#\u0000 \u0000S\u0000w\u0000e\u0000e\u0000t\u0000 \u0000S\u0000h\u0000o\u0000p\u0000 \u0000M\u0000a\u0000n\u0000a\u0000g\u0000e\u0000m\u0000e\u0000n\u0000t\u0000 \u0000S\u0000y\u0000s\u0000t\u0000e\u0000m\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
