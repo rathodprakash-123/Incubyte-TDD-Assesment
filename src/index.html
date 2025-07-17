@@ -20,63 +20,63 @@
     }
 </style>
 </head>
-<body class="bg-gradient-to-br from-pink-50 to-yellow-100 min-h-screen text-gray-800 ">
-  <div class="max-w-6xl mx-auto p-6">
-    <header class="mb-8 text-center">
-      <h1 class="text-4xl font-extrabold text-pink-600 drop-shadow"><i class="fa-solid fa-cookie-bite"></i> &nbsp;Sweet Shop Management</h1>
-      <p class="text-lg text-gray-600 mt-1">Track, add, and manage your sweets with ease!</p>
+<body class="body">
+  <div class="container">
+    <header class="header">
+      <h1><i class="fa-solid fa-cookie-bite"></i> Sweet Shop Management</h1>
+      <p>Track, add, and manage your sweets with ease!</p>
     </header>
 
     <!-- Add Sweet Form -->
-    <section class="bg-white p-6 rounded-2xl shadow-lg mb-8">
-      <h2 class="text-2xl font-semibold text-pink-700 mb-4"><i class="fa-solid fa-cart-plus"></i> &nbsp; Add New Sweet</h2>
-      <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
-        <input type="text" id="id" placeholder="ID" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
-        <input type="text" id="name" placeholder="Name" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
-        <input type="text" id="category" placeholder="Category" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
-        <input type="number" id="price" placeholder="Price" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
-        <input type="number" id="quantity" placeholder="Quantity" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
-        <button onclick="addSweet()" class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition">Add</button>
+    <section class="section form-section">
+      <h2><i class="fa-solid fa-cart-plus"></i> Add New Sweet</h2>
+      <div class="form-grid">
+        <input type="text" id="id" placeholder="ID" />
+        <input type="text" id="name" placeholder="Name" />
+        <input type="text" id="category" placeholder="Category" />
+        <input type="number" id="price" placeholder="Price" />
+        <input type="number" id="quantity" placeholder="Quantity" />
+        <button onclick="addSweet()">Add</button>
       </div>
     </section>
 
     <!-- Search and Sort -->
-    <section class="bg-white p-6 rounded-2xl shadow-lg mb-8">
-      <h2 class="text-xl font-semibold text-pink-700 mb-4"><i class="fa-solid fa-magnifying-glass"></i> &nbsp; Search & Sort</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        <input type="text" id="searchName" placeholder="Search by name" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" oninput="renderSweets()" />
-        <input type="text" id="searchCategory" placeholder="Search by category" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" oninput="renderSweets()" />
-        <select id="sortField" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" onchange="renderSweets()">
+    <section class="section search-sort">
+      <h2><i class="fa-solid fa-magnifying-glass"></i> Search & Sort</h2>
+      <div class="search-grid">
+        <input type="text" id="searchName" placeholder="Search by name" oninput="renderSweets()" />
+        <input type="text" id="searchCategory" placeholder="Search by category" oninput="renderSweets()" />
+        <select id="sortField" onchange="renderSweets()">
           <option value="">Sort By</option>
           <option value="price">Price</option>
           <option value="quantity">Quantity</option>
           <option value="name">Name</option>
           <option value="category">Category</option>
         </select>
-        <select id="sortOrder" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" onchange="renderSweets()">
+        <select id="sortOrder" onchange="renderSweets()">
           <option value="asc">Asc</option>
           <option value="desc">Desc</option>
         </select>
       </div>
     </section>
 
-    <!-- Sweet Table -->
-    <section class="bg-white p-6 rounded-2xl shadow-lg">
-      <h2 class="text-2xl font-semibold text-pink-700 mb-4"><i class="fa-solid fa-warehouse"></i>&nbsp; Inventory</h2>
-      <div class="overflow-x-auto rounded-lg">
-        <table class="w-full border-collapse table-auto text-sm">
+    <!-- Inventory Table -->
+    <section class="section table-section">
+      <h2><i class="fa-solid fa-warehouse"></i> Inventory</h2>
+      <div class="table-wrapper">
+        <table>
           <thead>
-            <tr class="bg-pink-100 text-pink-800">
-              <th class="p-3 border">ID</th>
-              <th class="p-3 border">Name</th>
-              <th class="p-3 border">Category</th>
-              <th class="p-3 border">Price</th>
-              <th class="p-3 border">Qty</th>
-              <th class="p-3 border">Actions</th>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Actions</th>
             </tr>
           </thead>
-          <tbody id="sweetTableBody" class="text-center">
-            <!-- Sweets will be rendered here -->
+          <tbody id="sweetTableBody">
+            <!-- Rendered sweets go here -->
           </tbody>
         </table>
       </div>
