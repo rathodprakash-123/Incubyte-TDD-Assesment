@@ -18,36 +18,41 @@ function addSweet() {
 }
 
 function renderSweets() {
-  const nameFilter = document.getElementById("searchName").value;
-  const catFilter = document.getElementById("searchCategory").value;
+  const nameFilter = document.getElementById("searchName").value.trim().toLowerCase();
+  const catFilter = document.getElementById("searchCategory").value.trim().toLowerCase();
   const sortField = document.getElementById("sortField").value;
   const sortOrder = document.getElementById("sortOrder").value;
 
   let sweets = shop.getAllSweets();
 
-  if (nameFilter) sweets = sweets.filter(s => s.name.toLowerCase().includes(nameFilter.toLowerCase()));
-  if (catFilter) sweets = sweets.filter(s => s.category.toLowerCase().includes(catFilter.toLowerCase()));
+  if (nameFilter) {
+    sweets = sweets.filter(s => s.name.toLowerCase().includes(nameFilter));
+  }
+  if (catFilter) {
+    sweets = sweets.filter(s => s.category.toLowerCase().includes(catFilter));
+  }
   if (sortField) sweets = shop.sortBy(sortField, sortOrder);
-
+ 
   const table = document.getElementById("sweetTableBody");
   table.innerHTML = "";
 
-    sweets.forEach(s => {
+  sweets.forEach(s => {
     const row = document.createElement("tr");
     row.innerHTML = `
-        <td class="cell">${s.id}</td>
-        <td class="cell">${s.name}</td>
-        <td class="cell">${s.category}</td>
-        <td class="cell">${s.price}</td>
-        <td class="cell">${s.quantity}</td>
-        <td class="cell action-buttons">
+      <td class="cell">${s.id}</td>
+      <td class="cell">${s.name}</td>
+      <td class="cell">${s.category}</td>
+      <td class="cell">${s.price}</td>
+      <td class="cell">${s.quantity}</td>
+      <td class="cell action-buttons">
         <button class="btn delete-btn" onclick="deleteSweet('${s.id}')">Delete</button>
         <button class="btn restock-btn" onclick="restock('${s.id}')">Restock</button>
         <button class="btn purchase-btn" onclick="purchase('${s.id}')">Purchase</button>
-        </td>`;
+      </td>`;
     table.appendChild(row);
-    });
+  });
 }
+
 
 function deleteSweet(id) {
   try {
