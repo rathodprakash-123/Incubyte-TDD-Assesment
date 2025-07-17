@@ -1,0 +1,139 @@
+/* style.css */
+body.body {
+  background: linear-gradient(to bottom right, #ffe4e6, #fff9db);
+  font-family: 'poppins';
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #db2777;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #ffb6c1;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.section {
+  background-color: white;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+  color: #db2777;
+  margin-bottom: 16px;
+}
+
+.form-grid,
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+input,
+select {
+  padding: 10px;
+  border-radius: 5px;
+  /* text-align: center; */
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #db2777;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: larger;
+  cursor: pointer;
+}
+
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+thead {
+  background-color: #ffe4e6;
+  color: #db2777;
+}
+
+.actions button {
+  margin: 2px;
+}
+/* Basic table cell */
+.cell {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Button styling */
+.btn {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* Individual button styles */
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.restock-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.purchase-btn {
+  background-color: #f1c40f;
+  color: black;
+}
+
+/* For spacing and wrapping action buttons */
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+

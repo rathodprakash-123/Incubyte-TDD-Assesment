@@ -32,22 +32,21 @@ function renderSweets() {
   const table = document.getElementById("sweetTableBody");
   table.innerHTML = "";
 
-  sweets.forEach(s => {
+    sweets.forEach(s => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td class="border p-2">${s.id}</td>
-      <td class="border p-2">${s.name}</td>
-      <td class="border p-2">${s.category}</td>
-      <td class="border p-2">${s.price}</td>
-      <td class="border p-2">${s.quantity}</td>
-      <td class="border p-2 flex flex-wrap gap-1">
-        <button class="bg-red-500 text-white px-2 py-1 rounded" onclick="deleteSweet('${s.id}')">Delete</button>
-        <button class="bg-green-500 text-white px-2 py-1 rounded" onclick="restock('${s.id}')">Restock</button>
-        <button class="bg-yellow-500 text-white px-2 py-1 rounded" onclick="purchase('${s.id}')">Purchase</button>
-      </td>
-    `;
+        <td class="cell">${s.id}</td>
+        <td class="cell">${s.name}</td>
+        <td class="cell">${s.category}</td>
+        <td class="cell">${s.price}</td>
+        <td class="cell">${s.quantity}</td>
+        <td class="cell action-buttons">
+        <button class="btn delete-btn" onclick="deleteSweet('${s.id}')">Delete</button>
+        <button class="btn restock-btn" onclick="restock('${s.id}')">Restock</button>
+        <button class="btn purchase-btn" onclick="purchase('${s.id}')">Purchase</button>
+        </td>`;
     table.appendChild(row);
-  });
+    });
 }
 
 function deleteSweet(id) {
