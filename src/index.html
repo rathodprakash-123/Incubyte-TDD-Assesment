@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Shop Dashboard</title>
+  <script defer src="script.js"></script>
+   <script src="SweetShop.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family: 'poppins';
+    }
+</style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 to-yellow-100 min-h-screen text-gray-800 ">
+  <div class="max-w-6xl mx-auto p-6">
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-extrabold text-pink-600 drop-shadow"><i class="fa-solid fa-cookie-bite"></i> &nbsp;Sweet Shop Management</h1>
+      <p class="text-lg text-gray-600 mt-1">Track, add, and manage your sweets with ease!</p>
+    </header>
+
+    <!-- Add Sweet Form -->
+    <section class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+      <h2 class="text-2xl font-semibold text-pink-700 mb-4"><i class="fa-solid fa-cart-plus"></i> &nbsp; Add New Sweet</h2>
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+        <input type="text" id="id" placeholder="ID" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
+        <input type="text" id="name" placeholder="Name" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
+        <input type="text" id="category" placeholder="Category" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
+        <input type="number" id="price" placeholder="Price" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
+        <input type="number" id="quantity" placeholder="Quantity" class="border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-pink-400" />
+        <button onclick="addSweet()" class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition">Add</button>
+      </div>
+    </section>
+
+    <!-- Search and Sort -->
+    <section class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+      <h2 class="text-xl font-semibold text-pink-700 mb-4"><i class="fa-solid fa-magnifying-glass"></i> &nbsp; Search & Sort</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <input type="text" id="searchName" placeholder="Search by name" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" oninput="renderSweets()" />
+        <input type="text" id="searchCategory" placeholder="Search by category" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" oninput="renderSweets()" />
+        <select id="sortField" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" onchange="renderSweets()">
+          <option value="">Sort By</option>
+          <option value="price">Price</option>
+          <option value="quantity">Quantity</option>
+          <option value="name">Name</option>
+          <option value="category">Category</option>
+        </select>
+        <select id="sortOrder" class="border p-2 rounded-lg focus:ring-2 focus:ring-yellow-400" onchange="renderSweets()">
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Sweet Table -->
+    <section class="bg-white p-6 rounded-2xl shadow-lg">
+      <h2 class="text-2xl font-semibold text-pink-700 mb-4"><i class="fa-solid fa-warehouse"></i>&nbsp; Inventory</h2>
+      <div class="overflow-x-auto rounded-lg">
+        <table class="w-full border-collapse table-auto text-sm">
+          <thead>
+            <tr class="bg-pink-100 text-pink-800">
+              <th class="p-3 border">ID</th>
+              <th class="p-3 border">Name</th>
+              <th class="p-3 border">Category</th>
+              <th class="p-3 border">Price</th>
+              <th class="p-3 border">Qty</th>
+              <th class="p-3 border">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="sweetTableBody" class="text-center">
+            <!-- Sweets will be rendered here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
