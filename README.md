@@ -42,7 +42,7 @@ This system allows users to manage sweet shop products through an intuitive inte
 ## 📥 Installation & Setup
 Step1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/rathodprakash-123/Incubyte-TDD-Assesment
    cd Incubyte-TDD-Assessment
    ```
 -
